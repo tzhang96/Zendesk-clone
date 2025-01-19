@@ -6,9 +6,10 @@ import './App.css'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// We'll use this later when we implement Supabase features
+// const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="container">
       <h1>{import.meta.env.VITE_APP_NAME}</h1>
