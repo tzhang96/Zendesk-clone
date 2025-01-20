@@ -1,21 +1,25 @@
-import React from 'react'
-import { createClient } from '@supabase/supabase-js'
-import './App.css'
+import { useEffect } from 'react'
+import { supabase, initStorage } from './lib/supabase'
 
-// Initialize Supabase client
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+function App() {
+  useEffect(() => {
+    // Initialize storage bucket on app start
+    initStorage().catch(console.error)
+  }, [])
 
-// We'll use this later when we implement Supabase features
-// const supabase = createClient(supabaseUrl, supabaseAnonKey)
-
-const App: React.FC = () => {
   return (
-    <div className="container">
-      <h1>{import.meta.env.VITE_APP_NAME}</h1>
-      <p>React + Supabase App</p>
-      <p>We'll build our Zendesk clone here soon!</p>
-    </div>
+    <main className="min-h-screen bg-gray-100">
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold text-gray-900">
+            AutoCRM
+          </h1>
+        </div>
+      </header>
+      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        {/* Content will go here */}
+      </div>
+    </main>
   )
 }
 
